@@ -94,14 +94,13 @@ class Stack:
             self.first = n
             self.last = n
 
-        #Connect behind the last node
+        #Connect to the last node
         else:
             self.last.next = n
             n.prev = self.last
             self.last = n
 
     def pop (self):
-
         #Stack is empty
         if self.first == None:
             return
