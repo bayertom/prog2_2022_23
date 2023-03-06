@@ -119,3 +119,8 @@ h.delRoot()
 min = h.min()
 print(min)
 
+#Priority queue
+item = {1:127}
+print(item)
+print(item.values())
+
