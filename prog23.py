@@ -120,7 +120,38 @@ min = h.min()
 print(min)
 
 #Priority queue
-item = {1:127}
-print(item)
-print(item.values())
+class PQItem:
+    def __int__(self, w, value):
+        self.w = w;
+        self.value = value
+class PQ:
+    def __init__(self, max_size):
+        self.n = 0
+        self.h = [PQItem] * (max_size + 1)
+
+    def fhu(self, i):
+        #Fix heap up
+        while (i > 1) and (self.h[i].w > self.h[i//2].w):
+            #Swap h[i] and h[i//2]
+            temp =  self.h[i//2]
+            self.h[i // 2] =  self.h[i]
+            self.h[i] = temp
+
+            #Go to parent
+            i = i//2
+
+    def push(self, item):
+        # Increment n
+        self.n = self.n + 1
+
+        # Connect to heap
+        self.h[self.n] = item
+
+        # Fix heap up
+        self.fhu(self.n)
+
+pq = PQ()
+item = PQItem(1, 127)
+pq.push(item)
+
 
