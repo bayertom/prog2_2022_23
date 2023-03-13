@@ -121,7 +121,7 @@ print(min)
 
 #Priority queue
 class PQItem:
-    def __int__(self, w, value):
+    def __init__(self, w, value):
         self.w = w;
         self.value = value
 class PQ:
@@ -150,8 +150,33 @@ class PQ:
         # Fix heap up
         self.fhu(self.n)
 
-pq = PQ()
-item = PQItem(1, 127)
+    def print(self):
+        for i in range(1, self.n+1):
+            print(self.h[i].w, self.h[i].value)
+
+pq = PQ(15)
+item = PQItem(97, 404)
+pq.push(item)
+item = PQItem(92, 44)
+pq.push(item)
+item = PQItem(88, 164)
+pq.push(item)
+item = PQItem(53, 149)
+pq.push(item)
+item = PQItem(45, 186)
+pq.push(item)
+item = PQItem(152, 246)
+pq.push(item)
+item = PQItem(13, 98)
+pq.push(item)
+item = PQItem(204, 123)
+pq.push(item)
+item = PQItem(197, 239)
+pq.push(item)
+item = PQItem(142, 177)
+pq.push(item)
+item = PQItem(105, 432)
 pq.push(item)
 
+pq.print()
 
