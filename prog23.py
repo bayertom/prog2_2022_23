@@ -15,7 +15,7 @@ class Heap:
             i = i//2
 
     def fhd(self, i):
-        # Fix heap up
+        # Fix heap down
         while (2 * i < self.n):
             #Swap index points to left parent
             k = 2 * i
@@ -71,6 +71,7 @@ class Heap:
 
         #Fix heap down from new root
         self.fhd(1)
+
 
 
 #Create heap
