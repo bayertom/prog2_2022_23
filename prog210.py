@@ -11,28 +11,54 @@ G = {
     9 : [4, 6, 8]
 }
 
-def BFS(G, u, p):
-    s = ['N'] * (len(G)+1)  
-    Q = []              
-    Q.append(u)     
-    s[u] = 'O'  
-    while Q:
-        u = Q.pop(0)  
-        for v in G[u]:  
-            if s[v] == 'N'
-                s[v] = 'O'  
-                p[v] = u  
-                Q.append(v)  
-        s[u] = 'C'
-        print(Q)
+def BFS(G, u, P):
+    # All nodes are new
+    S = ['N'] * (len(G) + 1)
 
-def pathuv(u, v, p, path):
-    while v != u and v != -1:
+    # Create queue
+    Q = []
+
+    # Add starting node and change status
+    Q.append(u)
+    S[u] = 'O'
+
+    # Until Q is empty
+    while Q:
+        # Take fist node
+        u = Q.pop(0)
+
+        # Browse its neighbors
+        for v in G[u]:
+            #Node is new
+            if S[v] == 'N':
+                # Change its status
+                S[v] = 'O'
+
+                # Remember itd predecessor
+                P[v] = u
+
+                # Add v to Q
+                Q.append(v)
+
+        # U is closed
+        S[u] = 'C'
+
+def pathuv(u, v, P):
+    path = []
+
+    # Repeat unit we reach u
+    while v != u and v != None:
         path.append(v)
-        v = p[v]
+        v = P[v]
+
     path.append(v)
+
+    return path
 
 p = [-1] * (len(G)+1)
 BFS(G, 1, p)
+
 print(p)
-print(pathuv(1, 9, p, path))
+
+path = pathuv(1, 9, p)
+print(path)
