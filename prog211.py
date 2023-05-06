@@ -84,8 +84,8 @@ def DFSS(G, u, P):
         S[u] = 'C'
 
 
-
-def pathuv(u, v, P):
+def recPath(u, v, P):
+    # Reconstruct path u-v backward
     path = []
 
     # Repeat unit we reach u
@@ -127,19 +127,19 @@ def dijkstra(G, P, s, e):
 P = [None] * (len(G)+1)
 DFS(G, 2, P)
 print(P)
-path = pathuv(2, 4, P)
+path = recPath(2, 4, P)
 print(path)
 
 #DFS, stack
 P2 = [None] * (len(G)+1)
 DFSS(G, 1, P2)
 print(P2)
-path = pathuv(1, 4, P2)
+path = recPath(1, 4, P2)
 print(path)
 
 #Dijkstra
 P = [None] * (len(G2)+1)
 #dist = dijkstra(G2, P, 1, 9)
-#path = pathuv(1, 9, P)
+#path = recPath(1, 9, P)
 #print(path)
 #print(dist)
