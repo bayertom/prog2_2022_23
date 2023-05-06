@@ -29,6 +29,7 @@ def BFS(G, u, P):
 
         # Browse its neighbors
         for v in G[u]:
+
             #Node is new
             if S[v] == 'N':
                 # Change its status
