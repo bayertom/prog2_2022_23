@@ -49,6 +49,41 @@ def DFSR(G, S, P, u):
     #Close the node
     S[u] = 'C'
 
+def DFSS(G, u, P):
+    # All nodes are new
+    S = ['N'] * (len(G) + 1)
+
+    #Create stack
+    ST = []
+
+    # Add start vertex to stack
+    ST.append(u)
+
+    S[u] = 'O'
+
+    #While stack not empty
+    while ST:
+        # Take fist node
+        u = ST.pop()
+
+        # Change its status
+        S[u] = 'O'
+
+        # Browse its neighbors in revered order
+        for v in reversed(G[u]):
+
+            #Node is new
+            if S[v] == 'N':
+
+                # Remember its predecessor
+                P[v] = u
+
+                # Add v to Q
+                ST.append(v)
+
+        #Close node
+        S[u] = 'C'
+
 def pathuv(u, v, P):
     path = []
 
@@ -91,9 +126,14 @@ def dijkstra(G, P, s, e):
 P = [None] * (len(G)+1)
 DFS(G, 1, P)
 print(P)
-path = pathuv(1, 9, P)
+path = pathuv(1, 4, P)
 print(path)
 
+P2 = [None] * (len(G)+1)
+DFSS(G, 1, P2)
+print(P2)
+path = pathuv(1, 4, P2)
+print(path)
 
 #Dijkstra
 P = [None] * (len(G2)+1)
