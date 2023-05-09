@@ -49,10 +49,7 @@ def DFSR(G, S, P, u):
     #Close the node
     S[u] = 'C'
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 964495f01160fa7f5b52444c8f9774a53508e25e
 def DFSS(G, u, P):
     # All nodes are new
     S = ['N'] * (len(G) + 1)
@@ -63,11 +60,8 @@ def DFSS(G, u, P):
     # Add start vertex to stack
     ST.append(u)
 
-<<<<<<< HEAD
     S[u] = 'O'
 
-=======
->>>>>>> 964495f01160fa7f5b52444c8f9774a53508e25e
     #While stack not empty
     while ST:
         # Take fist node
@@ -91,13 +85,9 @@ def DFSS(G, u, P):
         #Close node
         S[u] = 'C'
 
-<<<<<<< HEAD
-def pathuv(u, v, P):
-=======
 
 def recPath(u, v, P):
     # Reconstruct path u-v backward
->>>>>>> 964495f01160fa7f5b52444c8f9774a53508e25e
     path = []
 
     # Repeat unit we reach u
@@ -139,24 +129,20 @@ def dijkstra(G, P, s, e):
 P = [None] * (len(G)+1)
 DFS(G, 2, P)
 print(P)
-<<<<<<< HEAD
-path = pathuv(1, 4, P)
+path = recPath(1, 4, P)
 print(path)
 
-P2 = [None] * (len(G)+1)
-DFSS(G, 1, P2)
-print(P2)
-path = pathuv(1, 4, P2)
-=======
-path = recPath(2, 4, P)
-print(path)
-
-#DFS, stack
 P2 = [None] * (len(G)+1)
 DFSS(G, 1, P2)
 print(P2)
 path = recPath(1, 4, P2)
->>>>>>> 964495f01160fa7f5b52444c8f9774a53508e25e
+print(path)
+
+#DFS, stack
+P3 = [None] * (len(G)+1)
+DFSS(G, 1, P3)
+print(P3)
+path = recPath(1, 4, P3)
 print(path)
 
 #Dijkstra
