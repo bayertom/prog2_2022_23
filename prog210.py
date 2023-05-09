@@ -29,6 +29,7 @@ def BFS(G, u, P):
 
         # Browse its neighbors
         for v in G[u]:
+
             #Node is new
             if S[v] == 'N':
                 # Change its status
@@ -43,7 +44,9 @@ def BFS(G, u, P):
         # U is closed
         S[u] = 'C'
 
-def pathuv(u, v, P):
+
+def recPath(u, v, P):
+    #Reconstruct path u-v backward
     path = []
 
     # Repeat unit we reach u
@@ -60,5 +63,5 @@ BFS(G, 1, p)
 
 print(p)
 
-path = pathuv(1, 9, p)
+path = recPath(1, 9, p)
 print(path)
