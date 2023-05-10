@@ -87,7 +87,7 @@ int main()
     std::cout << "a divided by c: " << result << '\n';
     std::cout << "a divided by c and b divided by c: " << result2 << '\n';
 
-    //Find all deviders
+    //Find all dividers
     std::vector<int> dividers = getDividers(a);
     std::vector<int> dividers2 = getDividers2(a, b);
 
